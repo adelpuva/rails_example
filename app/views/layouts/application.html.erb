@@ -8,7 +8,13 @@
 </head>
 <body>
 
-<%= yield %>
+<div style="float:left; width:10%; height:100%;">
+  <%= render "layouts/menu" %>
+</div>
+
+<div style="float:right: width:90%">
+	<%= yield %>
+</div>
 
 </body>
 </html>
