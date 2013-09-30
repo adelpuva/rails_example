@@ -2,19 +2,45 @@
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 <body>
 
-<div style="float:left; width:10%; height:1000px;">
-  <%= render "layouts/menu" %>
-</div>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "sample app", '#', id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Home", home_path %></li>
+              <li><%= link_to "Sign in", '#' %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
 
-<div style="float:right: width:90%">
-	<%= yield %>
-</div>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <small>
+        <a href="http://railstutorial.org/">Rails Tutorial</a>
+        by Michael Hartl
+      </small>
+      <nav>
+        <ul>
+          <li><%= link_to "About", '#' %></li>
+          <li><%= link_to "Contact", '#' %></li>
+          <li><a href="http://news.railstutorial.org/">News</a></li>
+        </ul> </nav>
+    </footer>
 
 </body>
 </html>
