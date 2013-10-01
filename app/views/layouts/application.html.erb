@@ -18,7 +18,7 @@
           <nav>
             <ul class="nav pull-right">
               <li><%= link_to "Home", home_path %></li>
-              <li><%= link_to "Sign in", '#' %></li>
+              <li><%= link_to "Sign in", "#" %></li>
             </ul>
           </nav>
         </div>
@@ -26,6 +26,11 @@
     </header>
 
     <div class="container">
+      <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <%= value %></div>
+      <% end %>
+
       <%= yield %>
     </div>
 
@@ -39,8 +44,13 @@
           <li><%= link_to "About", '#' %></li>
           <li><%= link_to "Contact", '#' %></li>
           <li><a href="http://news.railstutorial.org/">News</a></li>
-        </ul> </nav>
+        </ul>
+      </nav>
     </footer>
+
+    <div>
+    <%= debug(params) if Rails.env.development? %>
+    </div>
 
 </body>
 </html>

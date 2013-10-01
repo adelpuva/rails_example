@@ -7,7 +7,10 @@ Example::Application.routes.draw do
   # home_url  -> 'http://localhost:3000/home'
 
   resources :microposts
+
   resources :users
+  match '/signup',  to: 'users#new', via: 'get'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

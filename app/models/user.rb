@@ -15,6 +15,6 @@ class User < ActiveRecord::Base
 
   # Password
   validates :password, length: {minimum: 6}
-  validates_confirmation_of :password, if: lambda { |m| m.password.present? }
+  #validates_confirmation_of :password, if: lambda { |m| m.password.present? }
 
 end
